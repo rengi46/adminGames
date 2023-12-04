@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rank_games",
+  "info": {
+    "singularName": "rank-game",
+    "pluralName": "rank-games",
+    "displayName": "rankGame"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "juego": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::juego.juego"
+    },
+    "usuario": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::usuario.usuario",
+      "inversedBy": "rank_games"
+    },
+    "points": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tiendas",
+  "info": {
+    "singularName": "tienda",
+    "pluralName": "tiendas",
+    "displayName": "Tienda",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "import-export-entries": {
+      "idField": "name"
+    }
+  },
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "idTienda": {
+      "type": "uid"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Located": {
+      "type": "string"
+    }
+  }
+}

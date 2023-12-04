@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "checks",
+  "info": {
+    "singularName": "check",
+    "pluralName": "checks",
+    "displayName": "check",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "regaloEntregado": {
+      "type": "boolean"
+    },
+    "code": {
+      "type": "uid"
+    },
+    "inicio": {
+      "type": "date"
+    },
+    "fin": {
+      "type": "date"
+    },
+    "tienda": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tienda.tienda"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "emailEnviado": {
+      "type": "boolean"
+    },
+    "finPromo": {
+      "type": "date"
+    }
+  }
+}

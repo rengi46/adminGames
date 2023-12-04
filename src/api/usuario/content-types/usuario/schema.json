@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "usuarios",
+  "info": {
+    "singularName": "usuario",
+    "pluralName": "usuarios",
+    "displayName": "Usuario",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "dateBirthday": {
+      "type": "date"
+    },
+    "NumberPhone": {
+      "type": "biginteger"
+    },
+    "Apellido": {
+      "type": "string"
+    },
+    "Genero": {
+      "type": "enumeration",
+      "enum": [
+        "Hombre",
+        "Mujer",
+        "Otros"
+      ]
+    },
+    "rank_games": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rank-game.rank-game",
+      "mappedBy": "usuario"
+    }
+  }
+}

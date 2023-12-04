@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regalos",
+  "info": {
+    "singularName": "regalo",
+    "pluralName": "regalos",
+    "displayName": "Regalo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Regalo": {
+      "type": "string"
+    },
+    "tienda": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tienda.tienda"
+    },
+    "codigoRegalo": {
+      "type": "uid",
+      "targetField": "Regalo"
+    },
+    "Max": {
+      "type": "biginteger"
+    },
+    "Inicio": {
+      "type": "date"
+    },
+    "Fin": {
+      "type": "date"
+    },
+    "Descripcion": {
+      "type": "text"
+    },
+    "FinPromo": {
+      "type": "date"
+    }
+  }
+}

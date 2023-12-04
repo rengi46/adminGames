@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "form_users",
+  "info": {
+    "singularName": "form-user",
+    "pluralName": "form-users",
+    "displayName": "formUser",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NameObligatorio": {
+      "type": "boolean"
+    },
+    "ApellidoObligatorio": {
+      "type": "boolean"
+    },
+    "NacimientoObligatorio": {
+      "type": "boolean"
+    },
+    "GeneroObligatorio": {
+      "type": "boolean"
+    },
+    "TelefonoObligatorio": {
+      "type": "boolean"
+    },
+    "Logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
