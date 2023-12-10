@@ -37,6 +37,12 @@
     },
     "finPromo": {
       "type": "date"
+    },
+    "cliente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::usuario.usuario",
+      "inversedBy": "checks"
     }
   }
 }

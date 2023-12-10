@@ -4,7 +4,7 @@
   "info": {
     "singularName": "usuario",
     "pluralName": "usuarios",
-    "displayName": "Usuario",
+    "displayName": "Clientes",
     "description": ""
   },
   "options": {
@@ -40,6 +40,12 @@
       "relation": "oneToMany",
       "target": "api::rank-game.rank-game",
       "mappedBy": "usuario"
+    },
+    "checks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::check.check",
+      "mappedBy": "cliente"
     }
   }
 }

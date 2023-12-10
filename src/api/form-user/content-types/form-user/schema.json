@@ -4,7 +4,7 @@
   "info": {
     "singularName": "form-user",
     "pluralName": "form-users",
-    "displayName": "formUser",
+    "displayName": "formClientes",
     "description": ""
   },
   "options": {
@@ -28,14 +28,21 @@
       "type": "boolean"
     },
     "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "centro": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::centro.centro",
+      "mappedBy": "form_cliente"
     }
   }
 }

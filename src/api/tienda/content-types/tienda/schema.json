@@ -34,6 +34,12 @@
     },
     "Located": {
       "type": "string"
+    },
+    "centro": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::centro.centro",
+      "inversedBy": "tiendas"
     }
   }
 }

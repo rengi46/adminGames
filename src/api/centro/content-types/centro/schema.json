@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "centros",
+  "info": {
+    "singularName": "centro",
+    "pluralName": "centros",
+    "displayName": "Centro"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Active": {
+      "type": "boolean"
+    },
+    "tiendas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tienda.tienda",
+      "mappedBy": "centro"
+    },
+    "form_cliente": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-user.form-user",
+      "inversedBy": "centro"
+    },
+    "juegos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::juego.juego",
+      "inversedBy": "centros"
+    },
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    }
+  }
+}

@@ -677,6 +677,57 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCentroCentro extends Schema.CollectionType {
+  collectionName: 'centros';
+  info: {
+    singularName: 'centro';
+    pluralName: 'centros';
+    displayName: 'Centro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String;
+    Active: Attribute.Boolean;
+    tiendas: Attribute.Relation<
+      'api::centro.centro',
+      'oneToMany',
+      'api::tienda.tienda'
+    >;
+    form_cliente: Attribute.Relation<
+      'api::centro.centro',
+      'oneToOne',
+      'api::form-user.form-user'
+    >;
+    juegos: Attribute.Relation<
+      'api::centro.centro',
+      'manyToMany',
+      'api::juego.juego'
+    >;
+    admin_user: Attribute.Relation<
+      'api::centro.centro',
+      'oneToOne',
+      'admin::user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::centro.centro',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::centro.centro',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCheckCheck extends Schema.CollectionType {
   collectionName: 'checks';
   info: {
@@ -701,6 +752,11 @@ export interface ApiCheckCheck extends Schema.CollectionType {
     descripcion: Attribute.Text;
     emailEnviado: Attribute.Boolean;
     finPromo: Attribute.Date;
+    cliente: Attribute.Relation<
+      'api::check.check',
+      'manyToOne',
+      'api::usuario.usuario'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -724,7 +780,7 @@ export interface ApiFormUserFormUser extends Schema.CollectionType {
   info: {
     singularName: 'form-user';
     pluralName: 'form-users';
-    displayName: 'formUser';
+    displayName: 'formClientes';
     description: '';
   };
   options: {
@@ -737,6 +793,11 @@ export interface ApiFormUserFormUser extends Schema.CollectionType {
     GeneroObligatorio: Attribute.Boolean;
     TelefonoObligatorio: Attribute.Boolean;
     Logo: Attribute.Media;
+    centro: Attribute.Relation<
+      'api::form-user.form-user',
+      'oneToOne',
+      'api::centro.centro'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -772,6 +833,11 @@ export interface ApiJuegoJuego extends Schema.CollectionType {
     Activo: Attribute.Boolean;
     description: Attribute.Text;
     imageJuego: Attribute.Media;
+    centros: Attribute.Relation<
+      'api::juego.juego',
+      'manyToMany',
+      'api::centro.centro'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -795,7 +861,8 @@ export interface ApiRankGameRankGame extends Schema.CollectionType {
   info: {
     singularName: 'rank-game';
     pluralName: 'rank-games';
-    displayName: 'rankGame';
+    displayName: 'pointsClients';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -893,6 +960,11 @@ export interface ApiTiendaTienda extends Schema.CollectionType {
     idTienda: Attribute.UID;
     logo: Attribute.Media;
     Located: Attribute.String;
+    centro: Attribute.Relation<
+      'api::tienda.tienda',
+      'manyToOne',
+      'api::centro.centro'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -916,7 +988,7 @@ export interface ApiUsuarioUsuario extends Schema.CollectionType {
   info: {
     singularName: 'usuario';
     pluralName: 'usuarios';
-    displayName: 'Usuario';
+    displayName: 'Clientes';
     description: '';
   };
   options: {
@@ -933,6 +1005,11 @@ export interface ApiUsuarioUsuario extends Schema.CollectionType {
       'api::usuario.usuario',
       'oneToMany',
       'api::rank-game.rank-game'
+    >;
+    checks: Attribute.Relation<
+      'api::usuario.usuario',
+      'oneToMany',
+      'api::check.check'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -968,6 +1045,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::centro.centro': ApiCentroCentro;
       'api::check.check': ApiCheckCheck;
       'api::form-user.form-user': ApiFormUserFormUser;
       'api::juego.juego': ApiJuegoJuego;

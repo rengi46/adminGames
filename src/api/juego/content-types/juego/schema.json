@@ -33,6 +33,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "centros": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::centro.centro",
+      "mappedBy": "juegos"
     }
   }
 }
