@@ -20,6 +20,7 @@ module.exports = {
       try {
         const emailOptions = {
           to: sendTo,
+          from: 'rpuigdemasa@phygitalbcn.com',
           subject: 'This is a test',
           html: "<h1>Regalo canjeado</h1>",
          

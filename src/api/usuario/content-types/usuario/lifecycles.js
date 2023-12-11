@@ -29,13 +29,14 @@ module.exports = {
       try {
         const emailOptions = {
           to: sendTo,
+          from: 'rpuigdemasa@phygitalbcn.com',
           subject: 'This is a test',
           html: regalo("https://phygitalstudio.es/","roger","message",gift.code),
-          attachments: [{
-            filename: 'QR.png',
-            path: qrCodeDataURL,
-            cid: gift.code 
-          }]
+          // attachments: [{
+          //   filename: 'QR.png',
+          //   path: qrCodeDataURL,
+          //   cid: gift.code 
+          // }]
         }
         console.log(emailOptions);
         await strapi.plugins['email'].services.email.send(emailOptions)
