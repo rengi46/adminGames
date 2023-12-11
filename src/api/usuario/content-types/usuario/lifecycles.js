@@ -37,6 +37,7 @@ module.exports = {
             cid: gift.code 
           }]
         }
+        console.log(emailOptions);
         await strapi.plugins['email'].services.email.send(emailOptions)
         // strapi.log.debug(`Email sent to ${sendTo}`)
         console.log("Email sent");

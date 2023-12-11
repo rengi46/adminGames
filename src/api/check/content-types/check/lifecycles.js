@@ -24,6 +24,7 @@ module.exports = {
           html: "<h1>Regalo canjeado</h1>",
          
         }
+        console.log(emailOptions);
         await strapi.plugins['email'].services.email.send(emailOptions)
         console.log("Email sent");
       } catch (err) {
