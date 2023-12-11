@@ -1122,6 +1122,29 @@
     "colors" "~1.2.1"
     "string-argv" "~0.3.1"
 
+"@sendgrid/client@^7.7.0":
+  "integrity" "sha512-SxH+y8jeAQSnDavrTD0uGDXYIIkFylCo+eDofVmZLQ0f862nnqbC3Vd1ej6b7Le7lboyzQF6F7Fodv02rYspuA=="
+  "resolved" "https://registry.npmjs.org/@sendgrid/client/-/client-7.7.0.tgz"
+  "version" "7.7.0"
+  dependencies:
+    "@sendgrid/helpers" "^7.7.0"
+    "axios" "^0.26.0"
+
+"@sendgrid/helpers@^7.7.0":
+  "integrity" "sha512-3AsAxfN3GDBcXoZ/y1mzAAbKzTtUZ5+ZrHOmWQ279AuaFXUNCh9bPnRpN504bgveTqoW+11IzPg3I0WVgDINpw=="
+  "resolved" "https://registry.npmjs.org/@sendgrid/helpers/-/helpers-7.7.0.tgz"
+  "version" "7.7.0"
+  dependencies:
+    "deepmerge" "^4.2.2"
+
+"@sendgrid/mail@7.7.0":
+  "integrity" "sha512-5+nApPE9wINBvHSUxwOxkkQqM/IAAaBYoP9hw7WwgDNQPxraruVqHizeTitVtKGiqWCKm2mnjh4XGN3fvFLqaw=="
+  "resolved" "https://registry.npmjs.org/@sendgrid/mail/-/mail-7.7.0.tgz"
+  "version" "7.7.0"
+  dependencies:
+    "@sendgrid/client" "^7.7.0"
+    "@sendgrid/helpers" "^7.7.0"
+
 "@sentry/core@6.19.7":
   "integrity" "sha512-tOfZ/umqB2AcHPGbIrsFLcvApdTm9ggpi/kQZFkej7kMphjT+SGBiQfYtjyg9jcRW+ilAR4JXC9BGKsdEQ+8Vw=="
   "resolved" "https://registry.npmjs.org/@sentry/core/-/core-6.19.7.tgz"
@@ -1632,6 +1655,14 @@
     "lodash" "4.17.21"
     "nodemailer" "6.9.1"
 
+"@strapi/provider-email-sendgrid@^4.15.5":
+  "integrity" "sha512-gstXBq9Dr1h0pQAjlo3Ja2gFEfE6uPfBj3cXTucerNJ9srCbFU4K+Xxqxphx6MJLycOW5QrRrEnvqPS3uGDxQg=="
+  "resolved" "https://registry.npmjs.org/@strapi/provider-email-sendgrid/-/provider-email-sendgrid-4.15.5.tgz"
+  "version" "4.15.5"
+  dependencies:
+    "@sendgrid/mail" "7.7.0"
+    "@strapi/utils" "4.15.5"
+
 "@strapi/provider-email-sendmail@4.15.4":
   "integrity" "sha512-mOFR8PcOo8YQedVttnvUM73KxPYgxdBrtqe40RUtMgLHJZvDmJ7He8Mg7knLH0vhQNF0gQ+hW6E0kgjuKM3+Gg=="
   "resolved" "https://registry.npmjs.org/@strapi/provider-email-sendmail/-/provider-email-sendmail-4.15.4.tgz"
@@ -1772,6 +1803,18 @@
   "integrity" "sha512-w6dURdVraSoVkfZiU4enkJlrAJ0XxW/ma+SSsQJQuYjvyqg2wCndqhkjOnCu9mHZ701IbkYqRhF5jpm8gVEoDg=="
   "resolved" "https://registry.npmjs.org/@strapi/utils/-/utils-4.15.4.tgz"
   "version" "4.15.4"
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    "date-fns" "2.30.0"
+    "http-errors" "1.8.1"
+    "lodash" "4.17.21"
+    "p-map" "4.0.0"
+    "yup" "0.32.9"
+
+"@strapi/utils@4.15.5":
+  "integrity" "sha512-1ARIaMh7i/lWTkPVnDX/EuWCJrIq9IrlNwToDG4tnej5ZzqhGQVD4G4n+I4nKLDjXi6qhR+7AGpcgtchBoWtRw=="
+  "resolved" "https://registry.npmjs.org/@strapi/utils/-/utils-4.15.5.tgz"
+  "version" "4.15.5"
   dependencies:
     "@sindresorhus/slugify" "1.1.0"
     "date-fns" "2.30.0"
@@ -2445,6 +2488,13 @@
   "integrity" "sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg=="
   "resolved" "https://registry.npmjs.org/atob/-/atob-2.1.2.tgz"
   "version" "2.1.2"
+
+"axios@^0.26.0":
+  "integrity" "sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.26.1.tgz"
+  "version" "0.26.1"
+  dependencies:
+    "follow-redirects" "^1.14.8"
 
 "axios@1.5.0":
   "integrity" "sha512-D4DdjDo5CY50Qms0qGQTTw6Q44jl7zRwY7bthds06pUGfChBCTcQs+N743eFWGEd6pRTMd6A+I87aWyFV5wiZQ=="
@@ -4250,7 +4300,7 @@
   "resolved" "https://registry.npmjs.org/fn.name/-/fn.name-1.1.0.tgz"
   "version" "1.1.0"
 
-"follow-redirects@^1.15.0", "follow-redirects@^1.15.2":
+"follow-redirects@^1.14.8", "follow-redirects@^1.15.0", "follow-redirects@^1.15.2":
   "integrity" "sha512-1VzOtuEM8pC9SFU1E+8KfTjZyMztRsgEfwQl44z8A25uy13jSzTj6dyK2Df52iV0vgHCfBwLhDWevLn95w5v6Q=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.3.tgz"
   "version" "1.15.3"

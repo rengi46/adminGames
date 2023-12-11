@@ -14,28 +14,38 @@ module.exports = ({ env }) => ({
     },
   },
   email: {
+    // config: {
+    //   provider: 'sendgrid',
+    //   providerOptions: {
+    //     apiKey: env('SENDGRID_API_KEY'),
+    //   },
+    //   settings: {
+    //     defaultFrom: 'myemail@protonmail.com',
+    //     defaultReplyTo: 'myemail@protonmail.com',
+    //   },
+    // },
     config: {
       provider: 'nodemailer',
       providerOptions: {
         service: 'Gmail',
         host: 'smtp.gmail.com',
         port: 465,
-        ssl: false,
-        tls: false,
+        // ssl: false,
+        // tls: false,
         auth: {
           type: 'OAuth2',
-          user: process.env.MAIL_USERNAME,
-          pass: process.env.MAIL_PASSWORD,
-          clientId: process.env.OAUTH_CLIENTID,
-          clientSecret: process.env.OAUTH_CLIENT_SECRET,
-          refreshToken: process.env.OAUTH_REFRESH_TOKEN
+          user: env("MAIL_USERNAME"),
+          pass: env("MAIL_PASSWORD"),
+          clientId: env("OAUTH_CLIENTID"),
+          clientSecret: env("OAUTH_CLIENT_SECRET"),
+          refreshToken: env("OAUTH_REFRESH_TOKEN")
 
         },
         // ... any custom nodemailer options
       },
       settings: {
-        defaultFrom: 'noreply@recipee.com',
-        defaultReplyTo: 'nonreply@recipee.com',
+        defaultFrom: env("MAIL_USERNAME"),
+        defaultReplyTo: env("MAIL_USERNAME"),
       },
     },
   },
