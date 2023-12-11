@@ -31,6 +31,7 @@ module.exports = {
           to: sendTo,
           from: 'rpuigdemasa@phygitalbcn.com',
           subject: 'This is a test',
+          text:"hola mundo",
           html: regalo("https://phygitalstudio.es/","roger","message",gift.code),
           // attachments: [{
           //   filename: 'QR.png',
@@ -39,7 +40,18 @@ module.exports = {
           // }]
         }
         console.log(emailOptions);
-        await strapi.plugins['email'].services.email.send(emailOptions)
+        await strapi.plugins['email'].services.email.send({
+          to: sendTo,
+          from: 'rpuigdemasa@phygitalbcn.com',
+          subject: 'This is a test',
+          text:"hola mundo",
+          html: regalo("https://phygitalstudio.es/","roger","message",gift.code),
+          // attachments: [{
+          //   filename: 'QR.png',
+          //   path: qrCodeDataURL,
+          //   cid: gift.code 
+          // }]
+        })
         // strapi.log.debug(`Email sent to ${sendTo}`)
         console.log("Email sent");
       } catch (err) {

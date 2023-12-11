@@ -26,7 +26,7 @@ module.exports = {
         }
         console.log(emailOptions);
         await strapi.plugins['email'].services.email.send({
-          to: "rogerpuigdemasa@gmail.com",
+          to: sendTo,
           from: 'rpuigdemasa@phygitalbcn.com',
           subject: 'This is a test',
           text:"hola mundo",
