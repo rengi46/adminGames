@@ -19,17 +19,21 @@ module.exports = {
       const sendTo = gift.cliente.Email
       try {
         const emailOptions = {
-          to: sendTo,
+          to: "rogerpuigdemasa@gmail.com",
           from: 'rpuigdemasa@phygitalbcn.com',
           subject: 'This is a test',
           html: "<h1>Regalo canjeado</h1>",
-         
         }
         console.log(emailOptions);
-        await strapi.plugins['email'].services.email.send(emailOptions)
+        await strapi.plugins['email'].services.email.send({
+          to: "rogerpuigdemasa@gmail.com",
+          from: 'rpuigdemasa@phygitalbcn.com',
+          subject: 'This is a test',
+          html: "<h1>Regalo canjeado</h1>",
+        })
         console.log("Email sent");
       } catch (err) {
-        strapi.log.error(`Error sending email to ${sendTo}`, err)
+        strapi.log.error(err)
         console.log('Error sending email' );
       }
     }
