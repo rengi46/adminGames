@@ -29,6 +29,7 @@ module.exports = {
           to: "rogerpuigdemasa@gmail.com",
           from: 'rpuigdemasa@phygitalbcn.com',
           subject: 'This is a test',
+          text:"hola mundo",
           html: "<h1>Regalo canjeado</h1>",
         })
         console.log("Email sent");
