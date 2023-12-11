@@ -17,7 +17,8 @@ module.exports = {
         },
         populate: true,
         data:{
-          emailEnviado:true
+          emailEnviado:true,
+          cliente: event.result.id
         }
       })
       if(!gift){
